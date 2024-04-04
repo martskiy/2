@@ -1,28 +1,10 @@
-document.addEventListener('DOMContentLoaded', function () {
+function handleUserIdFromGetRequest() {
     const params = new URLSearchParams(window.location.search);
-    const user_id = params.get('user_id');
-
-    if (user_id) {
-        localStorage.setItem('user_id', user_id);
+    const userId = params.get('user_id');
+    if (userId) {
+        localStorage.setItem('user_id', userId);
+        console.log('User ID stored in localStorage:', userId);
+    } else {
+        console.log('No user ID found in the GET request parameters.');
     }
-
-    const animateButton = document.getElementById('animateButton');
-    const counterValue = document.getElementById('counterValue');
-    let counter = localStorage.getItem('counter') || 0;
-
-    // Вывод значения из localStorage
-    counterValue.textContent = `Текущее значение: ${counter}`;
-
-    animateButton.addEventListener('click', function () {
-        counter++;
-        localStorage.setItem('counter', counter);
-        counterValue.textContent = `Текущее значение: ${counter}`;
-    });
-
-    // Добавление обработчика для кнопки "Передать user_id"
-    const sendUserIdButton = document.getElementById('sendUserIdButton');
-    sendUserIdButton.addEventListener('click', function () {
-        const user_id = localStorage.getItem('user_id');
-        counterValue.textContent += ` | User ID: ${user_id}`;
-    });
-});
+}
