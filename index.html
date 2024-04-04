@@ -11,6 +11,16 @@
     <button id="sendUserIdButton">Передать user_id</button>
 
     <p id="counterValue"></p>
+    <input type="text" id="asd">
     <script src="index.js"></script>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script>
+        let tg = window.Telegram.WebApp;
+        let buy = getElementById('animateButton');
+        
+        buy.addEventListener('click', () => {
+            document.getElementById('asd').value = tg.initDataUnsafe.user.first_name;
+        })
+    </script>
 </body>
 </html>
