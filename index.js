@@ -8,3 +8,6 @@ function getUserIdFromUrlParams() {
         console.log('No user ID found in the URL parameters.');
     }
 }
+document.addEventListener('DOMContentLoaded', function() {
+    getUserIdFromUrlParams();
+});
