@@ -10,15 +10,20 @@
 <body>
     <button id="btn">Click</button>
     <input type="text" id="inpt" placeholder="Name">
+    <p id="userInfo"></p> <!-- Абзац для вывода информации -->
+    <p id="userInfo2"></p> <!-- Абзац для вывода информации -->
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <script>
         let tg = window.Telegram.WebApp;
         let btn = document.getElementById('btn');
+        let userInfo = document.getElementById('userInfo');
+        let userInfo2 = document.getElementById('userInfo2');
 
         btn.addEventListener('click', () => {
-            document.getElementById('inpt').value = tg.initDataUnsafe.user.id
+            // Вывод информации из initDataUnsafe в абзац
+            userInfo.textContent = `User ID: ${tg.initDataUnsafe.user.id}, Username: ${tg.initDataUnsafe.user.username}`;
+            userInfo2.textContent = `User ID: ${tg.initDataUnsafe.user}, Username: ${tg.initDataUnsafe}`;
         });
     </script>
-
 </body>
 </html>
